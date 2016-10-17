@@ -65,9 +65,13 @@ function run_backend(){
 
 if [[ -z "$*" ]]; then
   ./configure --host localhost --hostname localhost --publicPort 80
+  go/build.sh
+  ./run exec make klient
   run_backend
 elif [[ "${1:0:1}" = '-' ]]; then
-  ./configure $*
+  ./configure "$@"
+  go/build.sh
+  ./run exec make klient
   run_backend
 else
   exec "$@"
