@@ -36,6 +36,6 @@ RUN npm install --unsafe-perm && \
     make -C client dist && \
     rm -rf generated
 
-EXPOSE 8090
+EXPOSE 8090:80
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
